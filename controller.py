@@ -1,3 +1,4 @@
+#Converts given weight to other weights on different planets
 def mercury_weight(weight):
     weight = float(weight)
     return round(weight * 0.38, 2)

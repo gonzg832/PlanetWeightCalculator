@@ -7,14 +7,15 @@ layout = [
     [sg.Text('Your Weight on Other Planets')],
           [sg.Input(size=(6,1), key='-WEIGHT-'), sg.Button('Calculate')],
           [
+              #Displays planet name and where the weights will be shown
               [sg.Text("Mercury:"),sg.Text(size=(15,1), key='-MERCURY_OUTPUT-')],
               [sg.Text("Venus:   "),sg.Text(size=(15,1), key='-VENUS_OUTPUT-')],
               [sg.Text("Mars:     "),sg.Text(size=(15,1), key='-MARS_OUTPUT-')],
-              [sg.Text("Jupiter:   "),sg.Text(size=(15,1), key='-JUPITER_OUTPUT-')],
+              [sg.Text("Jupiter:  "),sg.Text(size=(15,1), key='-JUPITER_OUTPUT-')],
               [sg.Text("Saturn:  "),sg.Text(size=(15,1), key='-SATURN_OUTPUT-')],
               [sg.Text("Uranus:  "),sg.Text(size=(15,1), key='-URANUS_OUTPUT-')],
               [sg.Text("Neptune:"),sg.Text(size=(15,1), key='-NEPTUNE_OUTPUT-')],
-              [sg.Text("Pluto:     "),sg.Text(size=(15,1), key='-PLUTO_OUTPUT-')],
+              [sg.Text("Pluto:      "),sg.Text(size=(15,1), key='-PLUTO_OUTPUT-')],
           ],
           [sg.Button('Exit')]
           ]
@@ -24,11 +25,13 @@ window = sg.Window('Weight on Planets Calculator', layout)
 while True:  # Event Loop
     event, values = window.read()
     print(event, values)
+    #Closes Program
     if event == sg.WIN_CLOSED or event == 'Exit':
         break
     if event == 'Calculate':
-        weight = values['-WEIGHT-']
         
+        weight = values['-WEIGHT-']
+        #Takes converted weight and displays it
         mercury_weight = controller.mercury_weight(weight)
         window['-MERCURY_OUTPUT-'].update(mercury_weight)
 
